@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "EgoTools (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "EgoTools (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+    "KeyboardSettings": {
+        "KeyboardDetachment": false
+    },
+    "ColorManagement": {
+        "CurrentMode": "Factory",
+        "CurrentProfile": "sRGB",
+        "IgcFile": "",
+        "3dlutFile": ""
+    },
+    "PowerThreshold": {
+        "ChargeLimit": 80
+    }
+}

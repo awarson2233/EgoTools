@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="EgoTools.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EgoTools"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="EgoTools">
+
+    <!-- 移除 <Window.SystemBackdrop>，由代码设置云母背景 -->
+    <Grid Loaded="RootGrid_Loaded">
+      <NavigationView x:Name="NavView"
+                      PaneDisplayMode="Left"
+                      IsBackButtonVisible="Collapsed"
+                      SelectionChanged="NavView_SelectionChanged"
+                      IsSettingsVisible="False"
+                      ItemInvoked="NavView_ItemInvoked">
+        <NavigationView.MenuItems>
+          <NavigationViewItem Content="主页" Tag="MainPage">
+            <NavigationViewItem.Icon>
+              <FontIcon Glyph="&#xE80F;" FontFamily="Segoe Fluent Icons"/>
+            </NavigationViewItem.Icon>
+          </NavigationViewItem>
+          <NavigationViewItem Content="键盘设置" Tag="KeyboardSettingsPage">
+            <NavigationViewItem.Icon>
+              <FontIcon Glyph="&#xE765;" FontFamily="Segoe Fluent Icons"/>
+            </NavigationViewItem.Icon>
+          </NavigationViewItem>
+          <NavigationViewItem Content="色彩管理" Tag="ColorManagementPage">
+            <NavigationViewItem.Icon>
+              <FontIcon Glyph="&#xE790;" FontFamily="Segoe Fluent Icons"/>
+            </NavigationViewItem.Icon>
+          </NavigationViewItem>
+          <NavigationViewItem Content="电源阈值" Tag="PowerThresholdPage">
+            <NavigationViewItem.Icon>
+              <FontIcon Glyph="&#xEBB6;" FontFamily="Segoe Fluent Icons"/>
+            </NavigationViewItem.Icon>
+          </NavigationViewItem>
+          <NavigationViewItem Content="关于" Tag="AboutPage">
+            <NavigationViewItem.Icon>
+              <FontIcon Glyph="&#xE946;" FontFamily="Segoe Fluent Icons"/>
+            </NavigationViewItem.Icon>
+          </NavigationViewItem>
+        </NavigationView.MenuItems>
+        <Frame x:Name="ContentFrame"/>
+      </NavigationView>
+    </Grid>
+</Window>
