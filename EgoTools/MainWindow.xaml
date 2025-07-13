@@ -12,7 +12,9 @@
     <!-- 移除 <Window.SystemBackdrop>，由代码设置云母背景 -->
     <Grid Loaded="RootGrid_Loaded">
       <NavigationView x:Name="NavView"
-                      PaneDisplayMode="Left"
+                      PaneDisplayMode="Auto"
+                      CompactModeThresholdWidth="640"
+                      ExpandedModeThresholdWidth="800"
                       IsBackButtonVisible="Collapsed"
                       SelectionChanged="NavView_SelectionChanged"
                       IsSettingsVisible="False"
