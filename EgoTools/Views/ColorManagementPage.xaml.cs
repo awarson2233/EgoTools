@@ -49,11 +49,11 @@ namespace EgoTools.Views
             config = App.LoadConfig() ?? new AppConfig
             {
                 KeyboardSettings = new KeyboardSettings { KeyboardDetachment = false },
-                ColorManagement = new ColorManagement { CurrentMode = "Factory", CurrentProfile = "sRGB", IgcFile = "", _3dlutFile = "" },
-                PowerThreshold = new PowerThreshold { ChargeLimit = 100 }
+                ColorManagement = new ColorManagement { CurrentMode = "Factory", CurrentProfile = "Default", IgcFile = "", _3dlutFile = "" },
+                PowerThreshold = new PowerThreshold { ChargeLimit = 80 }
             };
             if (config?.ColorManagement == null)
-                config.ColorManagement = new ColorManagement { CurrentMode = "Factory", CurrentProfile = "sRGB", IgcFile = "", _3dlutFile = "" };
+                config.ColorManagement = new ColorManagement { CurrentMode = "Factory", CurrentProfile = "Default", IgcFile = "", _3dlutFile = "" };
             CurrentModeDetailText.Text = GetCurrentModeDetailText();
             // 绑定下拉框事件，并根据配置设置选中项
             if (ProfileComboBox != null)
@@ -72,7 +72,7 @@ namespace EgoTools.Views
         private async void ProfileComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selected = (ProfileComboBox.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "sRGB";
-            // 调用 qdcm-loader.exe
+            string exeName = System.IO.Path.Combine(AppContext.BaseDirectory, "utils", "qdcm-loader.exe");
             var progressBar = new ProgressBar
             {
                 IsIndeterminate = true,
@@ -81,7 +81,7 @@ namespace EgoTools.Views
                 Margin = new Thickness(0, 16, 0, 0)
             };
             var stack = new StackPanel();
-            stack.Children.Add(new TextBlock { Text = "正在切换色彩预设...", FontSize = 16, Margin = new Thickness(0,0,0,8) });
+            stack.Children.Add(new TextBlock { Text = selected == "Default" ? "正在还原出厂色彩设置..." : "正在切换色彩预设...", FontSize = 16, Margin = new Thickness(0,0,0,8) });
             stack.Children.Add(progressBar);
             var runningDialog = new ContentDialog
             {
@@ -92,8 +92,7 @@ namespace EgoTools.Views
             var showTask = runningDialog.ShowAsync();
             var minDurationTask = System.Threading.Tasks.Task.Delay(1500);
 
-            string exeName = System.IO.Path.Combine(AppContext.BaseDirectory, "utils", "qdcm-loader.exe");
-            string arg = $"--preset {selected}";
+            string arg = selected == "Default" ? "--reset" : $"--preset {selected}";
             try
             {
                 var psi = new System.Diagnostics.ProcessStartInfo
@@ -117,7 +116,7 @@ namespace EgoTools.Views
                     {
                         var dialog = new ContentDialog
                         {
-                            Title = "色彩预设切换失败",
+                            Title = selected == "Default" ? "还原失败" : "色彩预设切换失败",
                             Content = $"命令行错误：{error}",
                             CloseButtonText = "确定",
                             XamlRoot = this.XamlRoot
@@ -139,8 +138,32 @@ namespace EgoTools.Views
                     }
                 }
                 // 命令执行成功保存json
-                if (config?.ColorManagement != null)
-                    config.ColorManagement.CurrentProfile = selected;
+                if (selected == "Default")
+                {
+                    if (config == null)
+                    {
+                        config = new AppConfig
+                        {
+                            KeyboardSettings = new KeyboardSettings { KeyboardDetachment = false },
+                            ColorManagement = new ColorManagement { CurrentMode = "Factory", CurrentProfile = "Default", IgcFile = "", _3dlutFile = "" },
+                            PowerThreshold = new PowerThreshold { ChargeLimit = 100 }
+                        };
+                    }
+                    if (config?.ColorManagement == null)
+                        config.ColorManagement = new ColorManagement { CurrentMode = "Factory", CurrentProfile = "Default", IgcFile = "", _3dlutFile = "" };
+                    if (config?.ColorManagement != null)
+                    {
+                        config.ColorManagement.CurrentMode = "Factory";
+                        config.ColorManagement.CurrentProfile = "Default";
+                        config.ColorManagement.IgcFile = "";
+                        config.ColorManagement._3dlutFile = "";
+                    }
+                }
+                else
+                {
+                    if (config?.ColorManagement != null)
+                        config.ColorManagement.CurrentProfile = selected;
+                }
                 if (config != null)
                     App.SaveConfig(config);
                 CurrentModeDetailText.Text = GetCurrentModeDetailText();
@@ -151,7 +174,7 @@ namespace EgoTools.Views
                 runningDialog.Hide();
                 var dialog = new ContentDialog
                 {
-                    Title = "调用失败",
+                    Title = selected == "Default" ? "还原失败" : "调用失败",
                     Content = $"无法调用qdcm-loader.exe：{ex.Message}",
                     CloseButtonText = "确定",
                     XamlRoot = this.XamlRoot
@@ -435,16 +458,16 @@ namespace EgoTools.Views
                     config = new AppConfig
                     {
                         KeyboardSettings = new KeyboardSettings { KeyboardDetachment = false },
-                        ColorManagement = new ColorManagement { CurrentMode = "Factory", CurrentProfile = "sRGB", IgcFile = "", _3dlutFile = "" },
+                        ColorManagement = new ColorManagement { CurrentMode = "Factory", CurrentProfile = "Default", IgcFile = "", _3dlutFile = "" },
                         PowerThreshold = new PowerThreshold { ChargeLimit = 100 }
                     };
                 }
                 if (config?.ColorManagement == null)
-                    config.ColorManagement = new ColorManagement { CurrentMode = "Factory", CurrentProfile = "sRGB", IgcFile = "", _3dlutFile = "" };
+                    config.ColorManagement = new ColorManagement { CurrentMode = "Factory", CurrentProfile = "Default", IgcFile = "", _3dlutFile = "" };
                 if (config?.ColorManagement != null)
                 {
                     config.ColorManagement.CurrentMode = "Factory";
-                    config.ColorManagement.CurrentProfile = "sRGB";
+                    config.ColorManagement.CurrentProfile = "Default";
                     config.ColorManagement.IgcFile = "";
                     config.ColorManagement._3dlutFile = "";
                 }
@@ -455,7 +478,7 @@ namespace EgoTools.Views
                 {
                     foreach (var item in ProfileComboBox.Items)
                     {
-                        if (item is ComboBoxItem cbi && cbi.Content?.ToString() == "sRGB")
+                        if (item is ComboBoxItem cbi && cbi.Content?.ToString() == "Default")
                         {
                             ProfileComboBox.SelectedItem = cbi;
                             break;

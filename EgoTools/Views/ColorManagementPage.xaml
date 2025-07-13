@@ -32,9 +32,10 @@
               <TextBlock Text="原厂预设色彩配置" FontSize="14" FontWeight="SemiBold"/>
               <TextBlock Text="选择色彩空间配置" FontSize="12" Foreground="#666666" Margin="0,4,0,0"/>
             </StackPanel>
-            <ComboBox x:Name="ProfileComboBox" Grid.Column="2" Width="120" HorizontalAlignment="Right" SelectedIndex="0">
+            <ComboBox x:Name="ProfileComboBox" Grid.Column="2" Width="180" HorizontalAlignment="Right" SelectedIndex="0">
               <ComboBoxItem Content="DisplayP3"/>
               <ComboBoxItem Content="sRGB"/>
+              <ComboBoxItem Content="Default"/>
             </ComboBox>
           </Grid>
         </Border>

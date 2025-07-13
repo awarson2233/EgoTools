@@ -103,7 +103,7 @@ namespace EgoTools
                     var defaultConfig = new AppConfig
                     {
                         KeyboardSettings = new KeyboardSettings { KeyboardDetachment = false },
-                        ColorManagement = new ColorManagement { CurrentMode = "Factory", CurrentProfile = "sRGB", IgcFile = "", _3dlutFile = "" },
+                        ColorManagement = new ColorManagement { CurrentMode = "Factory", CurrentProfile = "Default", IgcFile = "", _3dlutFile = "" },
                         PowerThreshold = new PowerThreshold { ChargeLimit = 100 }
                     };
                     string json = JsonSerializer.Serialize(defaultConfig, AppJsonContext.Default.AppConfig);
