@@ -13,6 +13,10 @@ using Microsoft.UI.Xaml.Navigation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using System.Runtime.InteropServices;
+using Microsoft.UI;
+using Microsoft.UI.Windowing;
+using WinRT.Interop;
+
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -30,8 +34,9 @@ namespace EgoTools
             this.SystemBackdrop = new Microsoft.UI.Xaml.Media.MicaBackdrop();
             NavView.SelectedItem = NavView.MenuItems[0];
             ContentFrame.Navigate(typeof(Views.MainPage));
-            // 设置窗口图标
-            SetWindowIcon();
+            // 设置标题栏
+            ExtendsContentIntoTitleBar = true;
+            this.AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
         }
 
         private void RootGrid_Loaded(object sender, RoutedEventArgs e)
@@ -75,18 +80,6 @@ namespace EgoTools
                 case "AboutPage":
                     ContentFrame.Navigate(typeof(Views.AboutPage));
                     break;
-            }
-        }
-
-        private void SetWindowIcon()
-        {
-            var windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(this);
-            string iconPath = System.IO.Path.Combine(AppContext.BaseDirectory, "Assets", "logo.ico");
-            IntPtr hIcon = LoadImage(IntPtr.Zero, iconPath, IMAGE_ICON, 0, 0, LR_LOADFROMFILE);
-            if (hIcon != IntPtr.Zero)
-            {
-                SendMessage(windowHandle, WM_SETICON, (IntPtr)ICON_BIG, hIcon);
-                SendMessage(windowHandle, WM_SETICON, (IntPtr)ICON_SMALL, hIcon);
             }
         }
 

@@ -20,7 +20,7 @@
           <TextBlock x:Name="CurrentModeDetailText" Text="原厂预设 sRGB" FontSize="16" Foreground="#666" Margin="0,4,0,0" HorizontalAlignment="Center"/>
         </StackPanel>
         <!-- 条目1：原厂预设色彩配置 -->
-        <Border CornerRadius="6" Background="White" Padding="16" Margin="20,18,24,0" BorderBrush="LightGray" BorderThickness="0.75" HorizontalAlignment="Stretch">
+        <Border CornerRadius="6" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="20,18,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="0.75" HorizontalAlignment="Stretch">
           <Grid HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="Auto"/>
@@ -40,7 +40,7 @@
           </Grid>
         </Border>
         <!-- 条目2：加载校色文件1 -->
-         <Border CornerRadius="6" Background="White" Padding="16" Margin="20,8,24,0" BorderBrush="LightGray" BorderThickness="0.75" HorizontalAlignment="Stretch">
+         <Border CornerRadius="6" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="20,8,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="0.75" HorizontalAlignment="Stretch">
           <Grid HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="Auto"/>
@@ -61,7 +61,7 @@
           </Grid>
         </Border>
         <!-- 条目3：加载校色文件2 -->
-         <Border CornerRadius="6" Background="White" Padding="16" Margin="20,8,24,0" BorderBrush="LightGray" BorderThickness="0.75" HorizontalAlignment="Stretch">
+         <Border CornerRadius="6" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="20,8,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="0.75" HorizontalAlignment="Stretch">
           <Grid HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="Auto"/>
@@ -82,7 +82,7 @@
           </Grid>
         </Border>
         <!-- 条目4：重置为默认设置 -->
-         <Border CornerRadius="6" Background="White" Padding="16" Margin="20,8,24,18" BorderBrush="LightGray" BorderThickness="0.75" HorizontalAlignment="Stretch">
+         <Border CornerRadius="6" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="20,8,24,18" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="0.75" HorizontalAlignment="Stretch">
           <Grid HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="Auto"/>

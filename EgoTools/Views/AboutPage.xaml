@@ -15,7 +15,7 @@
           <!-- 版本信息小标题 -->
           <TextBlock Text="版本信息" FontSize="16" FontWeight="SemiBold" Margin="28,24,0,8"/>
           <!-- EgoTools版本条目 -->
-          <Border CornerRadius="6" Background="White" Padding="16" Margin="28,0,24,0" BorderBrush="LightGray" BorderThickness="0.75" HorizontalAlignment="Stretch">
+          <Border CornerRadius="6" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="28,0,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="0.75" HorizontalAlignment="Stretch">
             <Grid HorizontalAlignment="Stretch">
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -36,7 +36,7 @@
             </Grid>
           </Border>
           <!-- Goddies组件版本条目 -->
-          <Border CornerRadius="6" Background="White" Padding="16" Margin="28,8,24,0" BorderBrush="LightGray" BorderThickness="0.75" HorizontalAlignment="Stretch">
+          <Border CornerRadius="6" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="28,8,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="0.75" HorizontalAlignment="Stretch">
             <Grid HorizontalAlignment="Stretch">
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -59,7 +59,7 @@
           <!-- Contributors小标题 -->
           <TextBlock Text="Contributors" FontSize="16" FontWeight="SemiBold" Margin="28,14,0,10"/>
           <!-- dantmnf条目 -->
-          <Border CornerRadius="6" Background="White" Padding="16" Margin="28,0,24,0" BorderBrush="LightGray" BorderThickness="0.75" HorizontalAlignment="Stretch">
+          <Border CornerRadius="6" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="28,0,24,0" BorderBrush="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderThickness="0.75" HorizontalAlignment="Stretch">
             <Grid HorizontalAlignment="Stretch">
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -84,7 +84,7 @@
             </Grid>
           </Border>
           <!-- AngelaCooljx条目 -->
-          <Border CornerRadius="6" Background="White" Padding="16" Margin="28,8,24,18" BorderBrush="LightGray" BorderThickness="0.75" HorizontalAlignment="Stretch">
+          <Border CornerRadius="6" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="28,8,24,18" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="0.75" HorizontalAlignment="Stretch">
             <Grid HorizontalAlignment="Stretch">
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
