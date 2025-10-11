@@ -11,7 +11,7 @@
     <Grid>
       <StackPanel Orientation="Vertical">
         <TextBlock Text="键盘设置" FontSize="24" Margin="16,16,0,0"/>
-        <Border CornerRadius="6" Background="White" Padding="16" Margin="20,18,24,0" BorderBrush="LightGray" BorderThickness="0.75" HorizontalAlignment="Stretch">
+            <Border CornerRadius="6" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="20,18,24,0" BorderBrush="{ThemeResource SmokeFillColorDefaultBrush}" BorderThickness="0.75" HorizontalAlignment="Stretch">
           <Grid HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="Auto"/>

@@ -11,7 +11,7 @@
     <Grid>
       <StackPanel Orientation="Vertical">
         <TextBlock Text="电源阈值" FontSize="24" Margin="16,16,0,0"/>
-        <Border CornerRadius="6" Background="White" Padding="16" Margin="28,24,24,0" BorderBrush="LightGray" BorderThickness="0.75" HorizontalAlignment="Stretch">
+        <Border CornerRadius="6" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="28,24,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="0.75" HorizontalAlignment="Stretch">
           <Grid HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="Auto"/>
@@ -28,7 +28,7 @@
             </Button>
           </Grid>
         </Border>
-        <Border CornerRadius="6" Background="White" Padding="16" Margin="28,12,24,0" BorderBrush="LightGray" BorderThickness="0.75" HorizontalAlignment="Stretch">
+        <Border CornerRadius="6" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="28,12,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="0.75" HorizontalAlignment="Stretch">
           <Grid HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="Auto"/>
