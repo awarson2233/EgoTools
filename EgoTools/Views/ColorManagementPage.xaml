@@ -16,11 +16,11 @@
           <Image Source="ms-appx:///Assets/Custom/screen.png" Stretch="Uniform"/>
         </Border>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,8,0,0">
-          <TextBlock Text="当前校色方式" FontSize="18" FontWeight="SemiBold" Foreground="#444" HorizontalAlignment="Center"/>
-          <TextBlock x:Name="CurrentModeDetailText" Text="原厂预设 sRGB" FontSize="16" Foreground="#666" Margin="0,4,0,0" HorizontalAlignment="Center"/>
+          <TextBlock Text="当前校色方式" FontSize="18" FontWeight="SemiBold" Foreground="{ThemeResource TextFillColorPrimaryBrush}" HorizontalAlignment="Center"/>
+          <TextBlock x:Name="CurrentModeDetailText" Text="原厂预设 sRGB" FontSize="16" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0" HorizontalAlignment="Center"/>
         </StackPanel>
         <!-- 条目1：原厂预设色彩配置 -->
-        <Border CornerRadius="6" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="20,18,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="0.75" HorizontalAlignment="Stretch">
+        <Border CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="20,8,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" HorizontalAlignment="Stretch">
           <Grid HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="Auto"/>
@@ -30,7 +30,7 @@
             <FontIcon Glyph="&#xF08C;" FontSize="20" VerticalAlignment="Center"/>
             <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
               <TextBlock Text="原厂预设色彩配置" FontSize="14" FontWeight="SemiBold"/>
-              <TextBlock Text="选择色彩空间配置" FontSize="12" Foreground="#666666" Margin="0,4,0,0"/>
+              <TextBlock Text="选择色彩空间配置" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
             </StackPanel>
             <ComboBox x:Name="ProfileComboBox" Grid.Column="2" Width="180" HorizontalAlignment="Right" SelectedIndex="0">
               <ComboBoxItem Content="DisplayP3"/>
@@ -40,7 +40,7 @@
           </Grid>
         </Border>
         <!-- 条目2：加载校色文件1 -->
-         <Border CornerRadius="6" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="20,8,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="0.75" HorizontalAlignment="Stretch">
+         <Border CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="20,8,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" HorizontalAlignment="Stretch">
           <Grid HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="Auto"/>
@@ -50,7 +50,7 @@
             <FontIcon Glyph="&#xE792;" FontSize="20" VerticalAlignment="Center"/>
             <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
               <TextBlock Text="Gamma 校正" FontSize="14" FontWeight="SemiBold"/>
-                            <TextBlock Text="加载一个自定义的 输入 Shaper LUT，在应用 3D LUT 前先进行输入信号的线性化或 Gamma 校正" FontSize="12" Foreground="#666666" Margin="0,4,0,0"/>
+                            <TextBlock Text="加载一个自定义的 输入 Shaper LUT，在应用 3D LUT 前先进行输入信号的线性化或 Gamma 校正" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
             </StackPanel>
             <Button Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" Click="OnSelectCubeFile1Click">
               <StackPanel Orientation="Horizontal">
@@ -61,7 +61,7 @@
           </Grid>
         </Border>
         <!-- 条目3：加载校色文件2 -->
-         <Border CornerRadius="6" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="20,8,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="0.75" HorizontalAlignment="Stretch">
+         <Border CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="20,8,24,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" HorizontalAlignment="Stretch">
           <Grid HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="Auto"/>
@@ -71,7 +71,7 @@
             <FontIcon Glyph="&#xE792;" FontSize="20" VerticalAlignment="Center"/>
             <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
               <TextBlock Text="颜色空间映射" FontSize="14" FontWeight="SemiBold"/>
-                            <TextBlock Text="加载一个 3D LUT 文件，定义从一个颜色空间映射到另一个颜色空间的复杂映射" FontSize="12" Foreground="#666666" Margin="0,4,0,0"/>
+                            <TextBlock Text="加载一个 3D LUT 文件，定义从一个颜色空间映射到另一个颜色空间的复杂映射" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
             </StackPanel>
             <Button Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" Click="OnSelectCubeFile2Click">
               <StackPanel Orientation="Horizontal">
@@ -82,7 +82,7 @@
           </Grid>
         </Border>
         <!-- 条目4：重置为默认设置 -->
-         <Border CornerRadius="6" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="20,8,24,18" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="0.75" HorizontalAlignment="Stretch">
+         <Border CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="16" Margin="20,8,24,18" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" HorizontalAlignment="Stretch">
           <Grid HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="Auto"/>
@@ -92,7 +92,7 @@
             <FontIcon Glyph="&#xE7AD;" FontSize="20" VerticalAlignment="Center"/>
             <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
               <TextBlock Text="重置为默认设置" FontSize="14" FontWeight="SemiBold"/>
-              <TextBlock Text="恢复所有色彩设置为出厂状态" FontSize="12" Foreground="#666666" Margin="0,4,0,0"/>
+              <TextBlock Text="恢复所有色彩设置为出厂状态" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,0"/>
             </StackPanel>
             <Button Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" Click="OnResetButtonClick">
               <StackPanel Orientation="Horizontal">
